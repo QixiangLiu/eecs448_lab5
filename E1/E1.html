@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><title>Exercise 1</title></head>
+<body>
+  <p>
+    create table Users{   <br>
+    user_id varchar(255) NOT NULL, <br>
+    PRIMARY KEY (user_id) <br>
+    };    <br>
+
+    create table Posts(                   <br>
+    post_id int NOT NULL AUTO_INCREMENT,    <br>
+    content TEXT NOT NULL,                  <br>
+    author_id varchar(255),                 <br>
+    PRIMARY KEY (post_id),                  <br>
+    FOREGIN KEY (author_id) REFERENCE Users(user_id) <br>
+    );                                                 <br>
+
+    Some other hints: <br>
+    alter table Users <br>
+    modify column user_id varchar(255) NOT NULL;<br>
+    --each table has only have one PRIMARY KEY!<br>
+    alter table Users<br>
+    add PRIMARY KEY (user_id);<br>
+  </p>
+</body>
+</html>

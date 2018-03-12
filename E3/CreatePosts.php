@@ -18,7 +18,7 @@ if($username==''||$content ==''){
       }
     }
     if($user_have == true){
-      $query2 = "INSERT INTO Posts(content,author_id) VALUES ($content','$username');";
+      $query2 = "INSERT INTO Posts(content,author_id) VALUES ('$content','$username');";
       if($mysqli->query($query2)){
         printf("Increase successfully!");
       }
