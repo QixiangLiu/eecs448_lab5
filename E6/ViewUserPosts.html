@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head><title>Exercise 6</title></head>
+
 <body>
+
+
   <form action="ViewUserPosts.php" method = "post">
-  <select>
-    <option value="1234">123</option>
-    <option>456</option>
-  </select>
-  <input type = "submit" value="Submit">
-  <?php
-    include "ViewUserPosts.php"
-  ?>
+    <select name= "select">
+      <?php
+        $username = null;
+        $mysqli = new mysqli("mysql.eecs.ku.edu","q709l816","eegh3eJ7","q709l816");
+        if($mysqli->connect_errno){
+          printf("Connection Failed! %s\n",$mysqli->connect_error);
+          exit();
+        }
+          $query = "SELECT user_id FROM Users";
+          if($result=$mysqli->query($query)){
+            while($row=$result->fetch_assoc()){
+              $username = $row["user_id"];
+              echo "<option value='$username'>".$username."</option>";
+            }
+            $result->free();
+          }
+      ?>
+    </select>
+    <input type = "submit" name = "submit" value="Submit">
+  </form>
+
 </body>
 </html>
